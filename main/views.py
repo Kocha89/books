@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import Books
 
 def homepage(request):
@@ -10,11 +10,15 @@ def test(request):
 
 
 def add_book(request):
-    form = request.POST
-    title = form['book_title']
-    subtitle = form['book_subtitle']
-    description = form['book_description']
-    price = form['book_price']
-    genre = form['book_genre']
-    author = form['book_author']
-    year = form['book_year']
+    if request.method=='POST':
+        title = request.POST['book_title']
+        subtitle = request.POST['book_subtitle']
+        description = request.POST['book_description']
+        price = request.POST['book_price']
+        genre = request.POST['book_genre']
+        author = request.POST['book_author']
+        year = request.POST['book_year']
+        ins = Books(title=title, subtitle=subtitle, description=description, price=price, genre=genre, author=author, year=year)
+        ins.save()
+
+    return redirect(test)
