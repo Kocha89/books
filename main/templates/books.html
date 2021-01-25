@@ -22,15 +22,20 @@
             <button class="create_button">Добавить</button>
         </form>
         </div>
-        {% for books in books_list %}
+        
         <div class="book__inner-list">
-          
+          {% for books in books_list %}
             <div class="book__title">{{ books.title }}</div>
+            <div class="book__subtitle">{{ books.subtitle }}</div>
             <div class="book__description">{{ books.description }}</div>
             <div class="book__price">{{ books.price }}</div>
+            <div class="book__genre">{{ books.genre }}</div>
+            <div class="book__author">{{ books.author }}</div>
+            <div class="book__year">{{ books.year }}</div>
+          {% endfor %}
             
         </div>
-        {% endfor %}
+        
             
         </div>
     </section> 

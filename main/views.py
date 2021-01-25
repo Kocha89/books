@@ -3,10 +3,10 @@ from .models import Books
 
 def homepage(request):
     return render(request, "test.html")
-
-def test(request):
+    
+def books(request):
     books_list = Books.objects.all()
-    return render(request, 'test.html', {"books_list": books_list})
+    return render(request, 'books.html', {"books_list": books_list})
 
 
 def add_book(request):
@@ -21,4 +21,5 @@ def add_book(request):
         ins = Books(title=title, subtitle=subtitle, description=description, price=price, genre=genre, author=author, year=year)
         ins.save()
 
-    return redirect(test)
+    return redirect(books)
+
