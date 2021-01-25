@@ -9,6 +9,18 @@
 </head>
 <body>
     <section>
+        <div class="create_container">
+        <form action="{% url 'add-book' %}" method="POST">
+            {% csrf_token %}
+            <input class="create_input" type="text" placeholder="Напишите загаловок" name="book_title">
+            <input class="create_input" type="text" placeholder="Напишите подзагаловок" name="book_subtitle">
+            <input class="create_input" type="text" placeholder="Напишите описание" name="book_description">
+            <input class="create_input" type="text" placeholder="Напишите цену" name="book_price">
+            <input class="create_input" type="text" placeholder="Напишите жанр" name="book_genre">
+            <input class="create_input" type="text" placeholder="Напишите автора" name="book_author">
+            <input class="create_input" type="text" placeholder="Напишите год выхода книги" name="book_year">
+        </form>
+        </div>
         {% for books in books_list %}
         <div class="book__inner-list">
           
