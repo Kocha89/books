@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book's detail</title>
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}" />
+</head>
+<body>
+    <div class="book__inner">
+        <div class="book__item">
+            <div class="book__title">{{ todo_list.title }}</div>
+            <div class="book__subtitle">{{ todo_list.subtitle }}</div>
+            <div class="book__description">{{ todo_list.description }}</div>
+            <div class="book__price">{{ todo_list.price }}</div>
+            <div class="book__genre">{{ todo_list.genre }}</div>
+            <div class="book__author">{{ todo_list.author }}</div>
+            <div class="book__year">{{ todo_list.year }}</div>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>

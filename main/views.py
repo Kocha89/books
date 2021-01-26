@@ -34,3 +34,9 @@ def mark_todo(request, id):
     todo.is_favorite = True
     todo.save()
     return redirect(newbooks)
+
+def BooksDetail(request, id):
+    todo_list = Books.objects.get(id=id)
+    return render(request, 'books_detail.html', {"todo_list": todo_list})
+
+
