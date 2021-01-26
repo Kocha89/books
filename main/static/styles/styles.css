@@ -20,6 +20,38 @@ section{
     font-size: 25px;
     font-weight: bold;
 }
+
+.book__inner-list{
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.book__item{
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 24%;
+    padding: 10px 15px;
+    background-color: #C8E6C9;
+    margin-bottom: 20px;
+}
+.book__item.done{
+    background-color: #C0E0E0;
+    text-decoration: line-through;
+    color: #757575;
+}
+.book__item.done h4, .book__item.done p, .book__item.done span{
+    color: #757575;
+}
+.book__item.done img{
+    opacity: 0.5;
+}
+.book__item.marked{
+    background-color: #FFE062;
+    border: 2px solid #fad66a;
+}
 .todo_item_footer{
     display: flex;
     justify-content: space-between;

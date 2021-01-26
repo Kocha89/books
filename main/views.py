@@ -4,7 +4,7 @@ from .models import Books
 def homepage(request):
     return render(request, "books.html")
     
-def books(request):
+def newbooks(request):
     books_list = Books.objects.all()
     return render(request, 'books.html', {"books_list": books_list})
 
@@ -18,19 +18,19 @@ def add_book(request):
         genre = request.POST['book_genre']
         author = request.POST['book_author']
         year = request.POST['book_year']
-        ins = NewBooks(title=title, subtitle=subtitle, description=description, price=price, genre=genre, author=author, year=year)
+        ins = Books(title=title, subtitle=subtitle, description=description, price=price, genre=genre, author=author, year=year)
         ins.save()
 
-    return redirect(books)
+    return redirect(newbooks)
 
 
-def delete_book(request, id):
-    bookid = NewBooks.objects.get(id=id)
-    bookid.delete()
-    return redirect(books)
+def delete_todo(request, id):
+    todo = Books.objects.get(id=id)
+    todo.delete()
+    return redirect(newbooks)
 
-def mark_book(request, id):
-    bookid = NewBooks.objects.get(id=id)
-    bookid.is_favorite = True
-    bookid.save()
-    return redirect(books)
+def mark_todo(request, id):
+    todo = Books.objects.get(id=id)
+    todo.is_favorite = True
+    todo.save()
+    return redirect(newbooks)

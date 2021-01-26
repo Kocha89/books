@@ -1,6 +1,6 @@
 from django.db import models
 
-class NewBooks(models.Model):
+class Books(models.Model):
     title = models.CharField(max_length=100)
     subtitle = models.CharField(max_length=100)
     description = models.TextField(blank = True)
