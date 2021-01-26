@@ -20,3 +20,21 @@ section{
     font-size: 25px;
     font-weight: bold;
 }
+.todo_item_footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todo_item_footer p{
+    font-size: 15px;
+    font-family: sans-serif;
+}
+.todo_item_footer .action_button{
+    display: flex;
+}
+.todo_item_footer img{
+    width: 25px;
+    height: 25px;
+    margin: 0px 5px;
+    cursor: pointer;
+}

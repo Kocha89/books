@@ -1,6 +1,6 @@
 from django.db import models
 
-class Books(models.Model):
+class NewBooks(models.Model):
     title = models.CharField(max_length=100)
     subtitle = models.CharField(max_length=100)
     description = models.TextField(blank = True)
@@ -9,3 +9,6 @@ class Books(models.Model):
     author = models.CharField(max_length=100)
     year = models.CharField(max_length=100)
     date = models.DateField(auto_now_add=True)
+    created_at = models.BooleanField(default=False)
+    is_favorite = models.BooleanField(default=False)
+

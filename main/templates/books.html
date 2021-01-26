@@ -23,7 +23,11 @@
         </form>
         </div>
         
-        <div class="book__inner-list">
+        <div class="book__inner-list 
+        {% if todo.is_favorite %}
+                    marked
+                {% endif %}
+        ">
           {% for books in books_list %}
             <div class="book__title">{{ books.title }}</div>
             <div class="book__subtitle">{{ books.subtitle }}</div>
@@ -32,8 +36,19 @@
             <div class="book__genre">{{ books.genre }}</div>
             <div class="book__author">{{ books.author }}</div>
             <div class="book__year">{{ books.year }}</div>
+
           {% endfor %}
-            
+            <div class="todo_item_footer">
+                <p>{{ bookid.created_at }}</p>
+                <div class="action_buttons">
+                    {% if bookid.is_favorite %}
+                        <a href="{% url 'mark-book' bookid.id %}"><img src="{% static './icons/marked.png' %}" alt=""></a>
+                    {% else %}
+                        <a href="{% url 'mark-book' bookid.id %}"><img src="{% static './icons/unmarked.png' %}" alt=""></a>
+                    {% endif %}
+                    <a href="{% url 'delete-book' bookid.id %}"><img src="{% static './icons/delete.png' %} " alt=""></a>
+                </div>
+            </div>
         </div>
         
             

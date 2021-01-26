@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from .models import Books
 
 def homepage(request):
-    return render(request, "test.html")
+    return render(request, "books.html")
     
 def books(request):
     books_list = Books.objects.all()
@@ -18,8 +18,19 @@ def add_book(request):
         genre = request.POST['book_genre']
         author = request.POST['book_author']
         year = request.POST['book_year']
-        ins = Books(title=title, subtitle=subtitle, description=description, price=price, genre=genre, author=author, year=year)
+        ins = NewBooks(title=title, subtitle=subtitle, description=description, price=price, genre=genre, author=author, year=year)
         ins.save()
 
     return redirect(books)
 
+
+def delete_book(request, id):
+    bookid = NewBooks.objects.get(id=id)
+    bookid.delete()
+    return redirect(books)
+
+def mark_book(request, id):
+    bookid = NewBooks.objects.get(id=id)
+    bookid.is_favorite = True
+    bookid.save()
+    return redirect(books)
